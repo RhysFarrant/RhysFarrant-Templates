@@ -1,4 +1,5 @@
 import type { ComponentType, LazyExoticComponent } from "react";
+import { lazy } from "react";
 
 export type TemplateStatus = "Draft" | "Ready" | "Archived";
 export type TemplateCategory = "Web" | "Mobile" | "Dashboard";
@@ -16,7 +17,23 @@ export type TemplateDef = {
   component: TemplateComponent;
 };
 
-export const templates: TemplateDef[] = [];
+const SaaSProjectManagementDashboard = lazy(
+  () => import("@/templates/saas-project-management-dashboard")
+);
+
+export const templates: TemplateDef[] = [
+  {
+    slug: "saas-project-management-dashboard",
+    name: "SaaS Project Management Dashboard",
+    description:
+      "A modern operations dashboard for tracking projects, sprint progress, workload, and team activity.",
+    status: "Ready",
+    category: "Dashboard",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Analytics UI"],
+    lastUpdated: "2026-02-21",
+    component: SaaSProjectManagementDashboard,
+  },
+];
 
 function assertUniqueSlugs(defs: TemplateDef[]): void {
   const seen = new Set<string>();

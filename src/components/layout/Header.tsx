@@ -37,7 +37,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/80 bg-bg/80 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[1140px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <Link to="/" className="inline-flex items-center gap-2.5">
           <img
             src="/Me.png"
